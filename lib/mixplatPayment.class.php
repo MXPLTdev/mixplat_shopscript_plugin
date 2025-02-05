@@ -317,6 +317,20 @@ class mixplatPayment extends waPayment implements waIPayment, waIPaymentRefund, 
                 case 0:
                     $tax = 'vat0';//НДС по ставке 0%;
                     break;
+                case 5:
+                    if ($tax_included) {
+                        $tax = 'vat5'; // НДС чека по ставке 5%;
+                    } else {
+                        $tax = 'vat105'; // НДС чека по расчетной ставке 5/105;
+                    }
+                    break;
+                case 7:
+                    if ($tax_included) {
+                        $tax = 'vat7'; // НДС чека по ставке 7%;
+                    } else {
+                        $tax = 'vat107'; // НДС чека по расчетной ставке 7/107;
+                    }
+                    break;
                 case 10:
                     if ($tax_included) {
                         $tax = 'vat10';//НДС чека по ставке 10%;
